@@ -6,7 +6,7 @@ RIDE is not Turing Complete and there are no loops, recursions and there are a l
 
 Despite being simple, it gives a lot of power to the developer. 
 
-It's similar to Scala and is also influenced by F# and functional paradigm.
+It's looks a bit like Scala and is also influenced by F# and functional paradigm.
 
 RIDE is a very simple language. Going through this documentation will take you about an hour, and by the end of it, you will learn pretty much the entire language.
 
