@@ -67,16 +67,16 @@ func greet(name: String) = {
   "Hello, " + name
 }
 
-func add()
+func add(a: Int, b: Int) = {
+  a + b
+}
 ```
 
 The type comes after the argument's name. 
 
 Like in many other languages functions cannot be overloaded. It helps to keep the code simple, readable and maintainable.
 
-Functions can be used only after their declaration: 
-
-//TODO
+Functions can be used only after their declaration.
 
 ## Variables
 
@@ -163,7 +163,7 @@ let age = 21
 
 ```scala
 List    # [16, 10, "hello"]
-Nothing # //TODO ??? 
+Nothing # 
 Unit    # unit
 ```
 
@@ -210,7 +210,18 @@ You can prepend a new element to an existing list using `cons` function. There i
 let valueFromBlockchain = getString("3PHHD7dsVqBFnZfUuDPLwbayJiQudQJ9Ngf", "someKey") # Union(String | Unit)
 ```
 
-Union types are a very convenient way to work with abstractions (?), `Union(String | Unit)` shows that the value can be **on of** these types.
+Union types are a very convenient way to work with abstractions, `Union(String | Unit)` shows that the value is an intersection of these types.
+
+The simplest intuition about `Union`types is below: 
+```scala
+type Human : { firstName: String, lastName: String, age: Int}	
+type Cat : {name: String, age: Int } 
+```
+
+`Unioin(Human | Cat)` is an object with one field `age`:
+```scala
+Human | Cat => { age: Int }
+```
 
 `getString` returns `Union(String | Unit)` because while reading data from the blockchain (key-value state of accounts) some key-value pairs may not exist.
 
@@ -251,9 +262,9 @@ let readOrInit = match getInteger(this, "someKey") {
 
 Pattern matching is a mechanism for checking a value against a pattern. RIDE allows to use pattern matching only for predefined types. 
 
-// TODO: fix the definition below
+// : fix the definition below
 
-Pattern matching in RIDE looks like in Scala, but the only use case right now is get the real type of `Union` typed variable. Pattern matching can be useful in cases of very complicated types like `Union(Order | ReissueTransaction | BurnTransaction | MassTransferTransaction | ExchangeTransaction | TransferTransaction | SetAssetScriptTransaction | InvokeScriptTransaction | IssueTransaction | LeaseTransaction | LeaseCancelTransaction | CreateAliasTransaction | SetScriptTransaction | SponsorFeeTransaction | DataTransaction)`.
+Pattern matching in RIDE looks like in Scala, but the only use case right now is getting the real type of `Union` typed variable. Pattern matching can be useful in cases of very complicated types like `Union(Order | ReissueTransaction | BurnTransaction | MassTransferTransaction | ExchangeTransaction | TransferTransaction | SetAssetScriptTransaction | InvokeScriptTransaction | IssueTransaction | LeaseTransaction | LeaseCancelTransaction | CreateAliasTransaction | SetScriptTransaction | SponsorFeeTransaction | DataTransaction)`.
 
 ```scala
 let amount = match tx { # tx is a current outgoing transaction object in the global scope
