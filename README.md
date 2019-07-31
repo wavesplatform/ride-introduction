@@ -218,9 +218,19 @@ type Human : { firstName: String, lastName: String, age: Int}
 type Cat : {name: String, age: Int } 
 ```
 
-`Unioin(Human | Cat)` is an object with one field `age`:
+`Unioin(Human | Cat)` is an object with one field `age`, but we can use pattern matching:
 ```scala
 Human | Cat => { age: Int }
+```
+Pattern matching is designed to get specific field of an object:
+```scala
+let t = ... # Cat | Human
+  t.age                    # OK
+  t.name                    # Compiler error
+  let name = match t {            # OK
+    case h: Human => h.firstName
+    case c: Cat   => c.name
+  }
 ```
 
 `getString` returns `Union(String | Unit)` because while reading data from the blockchain (key-value state of accounts) some key-value pairs may not exist.
