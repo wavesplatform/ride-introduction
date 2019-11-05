@@ -523,7 +523,7 @@ You can try out Ride in REPL both online at [https://ide.wavesplatform.com/](htt
 For further development, the following tools and utilities are useful:
 
 - Visual Studio Code plugin: waves-ride
-- The surfboard tool will allow you to run tests on your existing node
+- The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
 - You should also install the Waves Keeper browser extension: [https://wavesplatform.com/products-keeper](https://wavesplatform.com/products-keeper)
 - Online IDE with examples: [https://ide.wavesplatform.com/](https://ide.wavesplatform.com/)
 
