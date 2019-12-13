@@ -131,7 +131,7 @@ func do() = {
 }
 ```
 
-The `callable` function will not be called either, because variable a is unused.
+The `calc` function will not be called either, because variable a is unused.
 
 Unlike most languages, variable shadowing is not allowed. Declaring a variable with a name that is already used in a parent scope will result in a compilation error. 
 
